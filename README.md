@@ -1,4 +1,3 @@
-Initial Experiment:
 ==================================================================
 Human Activity Recognition Using Smartphones Dataset
 Version 1.0
@@ -57,12 +56,12 @@ The following files are available for the train and test data. Their description
 The data was then further summarized using the run_analysis.R script saved in this repository. Transformations include:
 =========================================
 
-- Training and test datasets were merged into a single dataset.
+- Training and test datasets were appended into a single dataset.
 - The subject identifier codes, measured values (x), and activity codes (y) were merged into a single table.
-- The activity codes from y were merged with the activity name from activity_labels
-- The feature descriptions from the features file were used as variable names to identify what the measured values in x depicted.
-- The measured values were filtered to only include mean and standard deviation calculations for all the different measurements
-- The final dataset was summarized to get the average mean and std value for each subject and activity.
+- The activity codes from y were merged with the activity name from activity_labels so the data includes descriptions of the activities.
+- The feature descriptions from the features file were used as variable names to identify what the measured values in x depict.
+- The measured values were filtered to only include mean and standard deviation calculations for all the different measurements.
+- A final dataset was summarized to get the average mean and std value for each subject and activity.
 
 Notes: 
 ======

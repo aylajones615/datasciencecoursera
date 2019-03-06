@@ -2,31 +2,25 @@
 #load a package we need later
 library(dplyr)
 
-#read in data (NOTE! The file paths will need to be updated to point to wherever your downloaded data is stored)
-features <- read.table('C:\\Users\\U57A98\\Downloads\\getdata_projectfiles_UCI HAR Dataset\\UCI HAR Dataset\\features.txt', 
-                       header = FALSE)
+#set work directory to wherever you have the Samsung data stored
+setwd('C:\\Users\\U57A98\\Downloads\\getdata_projectfiles_UCI HAR Dataset\\UCI HAR Dataset')
 
-activity_labels <- read.table('C:\\Users\\U57A98\\Downloads\\getdata_projectfiles_UCI HAR Dataset\\UCI HAR Dataset\\activity_labels.txt', 
-                              header = FALSE)
+#read in data
+features <- read.table('features.txt', header = FALSE)
 
-x_train <- read.table('C:\\Users\\U57A98\\Downloads\\getdata_projectfiles_UCI HAR Dataset\\UCI HAR Dataset\\train\\X_train.txt', 
-                      header = F)
+activity_labels <- read.table('activity_labels.txt', header = FALSE)
 
-y_train <- read.table('C:\\Users\\U57A98\\Downloads\\getdata_projectfiles_UCI HAR Dataset\\UCI HAR Dataset\\train\\y_train.txt', 
-                      header = F)
+x_train <- read.table('train\\X_train.txt', header = F)
 
-subject_train <- read.table('C:\\Users\\U57A98\\Downloads\\getdata_projectfiles_UCI HAR Dataset\\UCI HAR Dataset\\train\\subject_train.txt', 
-                            header = FALSE)
+y_train <- read.table('train\\y_train.txt', header = F)
 
-x_test <- read.table('C:\\Users\\U57A98\\Downloads\\getdata_projectfiles_UCI HAR Dataset\\UCI HAR Dataset\\test\\X_test.txt', 
-                      header = F)
+subject_train <- read.table('train\\subject_train.txt', header = FALSE)
 
-y_test <- read.table('C:\\Users\\U57A98\\Downloads\\getdata_projectfiles_UCI HAR Dataset\\UCI HAR Dataset\\test\\y_test.txt', 
-                      header = F)
+x_test <- read.table('test\\X_test.txt', header = F)
 
-subject_test <- read.table('C:\\Users\\U57A98\\Downloads\\getdata_projectfiles_UCI HAR Dataset\\UCI HAR Dataset\\test\\subject_test.txt', 
-                            header = FALSE)
+y_test <- read.table('test\\y_test.txt', header = F)
 
+subject_test <- read.table('test\\subject_test.txt', header = FALSE)
 
 #name the columns in activity_labels
 names(activity_labels) <- c('activity_code', 'activity_description')
@@ -82,3 +76,7 @@ summary_data <- data %>% group_by(subject_code, activity_description) %>%
 #now remove the unnecessary tables
 rm(x_train, x_test, y_train, y_test, subject_train, subject_test, activity_labels, features, subject, x, y, 
    mean_cols, meanfreq_cols, std_cols)
+
+#export the final dataset as a text file
+write.table(summary_data, "final_data.txt", row.names = FALSE)
+

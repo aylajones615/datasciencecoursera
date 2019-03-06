@@ -58,16 +58,15 @@ tBodyGyroMean
 tBodyGyroJerkMean
 
 Cleaned Data
-The run_analysis.R script saved in this repository cleans the data until the following variables are included:
 =================
-
+The run_analysis.R script saved in this repository cleans the data until the following variables are included:
 subject_code - a numeric code ranging from 1-30 that identifies the test subject performing the action for which the measurements were taken
 activity_description - a description of the activity the subject was performing when the measurements were taken
 measurements - the mean and std measurements for each of the movement patterns mentioned above (ie tBodyAcc-mean()-x)
 
 Summarized Data
-The run_analysis.R script saved in this repository also summarizes the cleaned data:
 =================
+The run_analysis.R script saved in this repository also summarizes the cleaned data:
 
 The data is grouped by subject code and activity description, and the average value of each measurement (ie tBodyAcc-mean()-x_average, 
 tBodyGyroJerk-std()-y_average) are calculated for each combination of subject and activity.

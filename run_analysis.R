@@ -2,7 +2,7 @@
 #load a package we need later
 library(dplyr)
 
-#read in data
+#read in data (NOTE! The file paths will need to be updated to point to wherever your downloaded data is stored)
 features <- read.table('C:\\Users\\U57A98\\Downloads\\getdata_projectfiles_UCI HAR Dataset\\UCI HAR Dataset\\features.txt', 
                        header = FALSE)
 
